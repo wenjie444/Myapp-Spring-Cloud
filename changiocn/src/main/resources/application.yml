@@ -1,0 +1,61 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /wallparper
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 112.74.125.228:8848
+        cluster-name: hs
+  application:
+    name: changiocn
+  datasource:
+    url: jdbc:mysql://112.74.125.228:3306/wallpaper?serverTimezone=Asia/Shanghai&connectTimeout=10000
+    username: root
+    password: 910302
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+    minIdle: 50
+    time-between-eviction-runs-millis: 60000
+    maxActive: 100
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    removeAbandoned: true
+    remove-abandoned-timeout: 18000
+    web-stat-filter.enabled: true
+  redis:
+    port: 6379
+    host: 112.74.125.228
+    jedis:
+      pool:
+        min-idle: 5
+        max-idle: 10
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.wallpaper.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 5000
+        read-timeout: 5000
+#pagehelper:
+#  helperDialect: mysql
+#  #开启优化，如果开启优化，在分页页码结果没有数据的时候,会显示有数据的页码数据
+#  reasonable: true
+#  #是否支持接口参数来传递分页参数，默认false
+#  supportMethodsArguments: true
+#  #pageSize=0 返回所有
+#  pageSizeZero: false
+#  params: count=countSql

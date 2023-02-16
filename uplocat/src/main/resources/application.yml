@@ -1,0 +1,111 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /wallparper
+  tomcat:
+    max-connections: 180000
+    connection-timeout: 18000000
+    max-http-form-post-size: 100
+
+spring:
+  cloud:
+    nacos:
+      server-addr: 112.74.125.228:8848
+  application:
+    name: uplocat
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://112.74.125.228:3306/wallpaper?serverTimezone=Asia/Shanghai&connectTimeout=10000
+    username: root
+    password: 910302
+    druid:
+    minIdle: 50
+    time-between-eviction-runs-millis: 60000
+    maxActive: 100
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    removeAbandoned: true
+    remove-abandoned-timeout: 18000
+    web-stat-filter.enabled: true
+  redis:
+    port: 6379
+    host: 112.74.125.228
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 500MB
+  rabbitmq:
+    host: 112.74.125.228
+    port: 5672
+    virtual-host: /
+    username: guest
+    password: guest
+    # 消费者确认机制相关配置
+    # 开启publisher-confirm，
+    # 这里支持两种类型：simple：同步等待confirm结果，直到超时；# correlated：异步回调，定义ConfirmCallback，MQ返回结果时会回调这个ConfirmCallback
+    publisher-confirm-type: correlated
+    # publish-returns：开启publish-return功能，同样是基于callback机制，不过是定义ReturnCallback
+    publisher-returns: true
+    # 定义消息路由失败时的策略。true，则调用ReturnCallback；false：则直接丢弃消息
+    template:
+      mandatory: true
+
+aliyun:
+  oss:
+    # oss对外服务的访问域名
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    # 访问身份验证中用到用户标识
+    accessKeyId: LTAI5t7GtadpTYenZdzUyWBU
+    # 用户用于加密签名字符串和oss用来验证签名字符串的密钥
+    accessKeySecret: VsmW14Py0engBcJmbhA7Lu7sO8ZsXJ
+    # oss的存储空间
+    bucketName: wallpaperss
+    # 上传文件大小(M)
+    maxSize: 100
+    # 上传文件夹路径前缀
+    dir:
+      prefix: images/
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.wallpaper.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 50000
+        read-timeout: 50000
+
+#feign:
+#  hystrix:
+#    # Feign启用断路器，默认为FALSE
+#    enabled: true
+#  client:
+#    config:
+#      # 针对所有的服务
+#      default:
+#        # Feign的连接建立超时时间，默认为10秒
+#        connectTimeout: 5000
+#        # Feign的请求处理超时时间，默认为60秒
+#        readTimeout: 5000
+        # 日志级别
+  hystrix:
+    enabled: false
+#        loggerLevel: full
+#        # 是否对404错误码解码
+#        # 处理逻辑详见feign.SynchronousMethodHandler#executeAndDecode
+#        decode404: false
+ribbon:
+  eager-load:
+    enabled: true
+    clients: changiocn,hengiocn
+

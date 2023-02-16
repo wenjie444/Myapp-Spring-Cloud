@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wallpaperadmin.mapper.AdminMapper">
+    <insert id="insterAdmin" parameterType="com.wallpaperadmin.entity.Admin">
+        insert into admin (username,iocn,openid,addtime) values(#{username},#{iocn},#{openid},#{addtime})
+    </insert>
+    <update id="updataAdmin">
+        update admin set iocn=#{iocn} where username=#{username}
+    </update>
+
+    <select id="selectOne" resultType="com.wallpaperadmin.entity.Admin">
+        select * from admin where username=#{username} and openid=#{openId}
+    </select>
+    <select id="selectAdmin" resultType="com.wallpaperadmin.entity.Admin">
+        select * from admin where username=#{username}
+    </select>
+</mapper>

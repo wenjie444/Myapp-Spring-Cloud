@@ -1,0 +1,32 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: rabbitasync
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 112.74.125.228:8848
+
+  rabbitmq:
+    port: 5672
+    host: 112.74.125.228
+    username: admin
+    password: admin
+    virtual-host: my_vhost
+
+aliyun:
+  oss:
+    # oss对外服务的访问域名
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    # 访问身份验证中用到用户标识
+    accessKeyId: LTAI5t7GtadpTYenZdzUyWBU
+    # 用户用于加密签名字符串和oss用来验证签名字符串的密钥
+    accessKeySecret: VsmW14Py0engBcJmbhA7Lu7sO8ZsXJ
+    # oss的存储空间
+    bucketName: wallpaperss
+    # 上传文件大小(M)
+    maxSize: 100
+    # 上传文件夹路径前缀
+    dir:
+      prefix: images/

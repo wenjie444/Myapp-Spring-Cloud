@@ -1,0 +1,66 @@
+server:
+  port: 8084
+  tomcat:
+    connection-timeout: 19000000
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 112.74.125.228:8848
+    gateway:
+      httpclient:
+        connect-timeout: 100000000
+        response-timeout: 180000000
+        pool:
+          max-connections: 180000
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有路径
+            allowed-origins: # 允许的域名
+              - "http://localhost:8084"
+            allowed-headers: "*" # 允许的请求头
+            allowed-methods: "*" # 允许的方法
+            allow-credentials: true # 是否携带cookie
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: changiocn
+          uri: lb://changiocn
+          predicates:
+            - Path=/chang/**
+          filters:
+            - StripPrefix=1
+        - id: admin
+          uri: lb://admin
+          predicates:
+            - Path=/admin/**
+          filters:
+            - StripPrefix=1
+        - id: hengiocn
+          uri: lb://hengiocn
+          predicates:
+            - Path=/heng/**
+          filters:
+            - StripPrefix=1
+        - id: uplocat
+          uri: lb://uplocat
+          predicates:
+            - Path=/uplocat/**
+          filters:
+            - StripPrefix=1
+  application:
+    name: gateway
+
+
+#user:
+#  white-list: #拦截放行白名单
+#    - /login
+#    - /logout
+#    - /space
+#ribbon:
+#  eager-load:
+#    enabled: true
+#    clients: uplocat
+
+#    - /user
