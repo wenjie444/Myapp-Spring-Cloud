@@ -49,8 +49,9 @@ public class IconUplocatServiceImpl implements IconUplocatService {
 
       try {
          inputStream = file.getInputStream();
+         InputStream finalInputStream = inputStream;
          (new Thread(() -> {
-            this.ossClient.putObject(this.bucketName, name, inputStream);
+            this.ossClient.putObject(this.bucketName, name, finalInputStream);
          })).start();
       } catch (IOException var10) {
          var10.printStackTrace();
@@ -77,8 +78,9 @@ public class IconUplocatServiceImpl implements IconUplocatService {
 
       try {
          inputStream = file.getInputStream();
+         InputStream finalInputStream = inputStream;
          (new Thread(() -> {
-            this.ossClient.putObject(this.bucketName, name, inputStream);
+            this.ossClient.putObject(this.bucketName, name, finalInputStream);
          })).start();
       } catch (IOException var11) {
          var11.printStackTrace();

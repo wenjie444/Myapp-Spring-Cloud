@@ -5,6 +5,10 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectMapper.DefaultTyping;
 import javax.annotation.PostConstruct;
+
+import org.redisson.Redisson;
+import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -62,5 +66,11 @@ public class RedisConfig {
       template.setValueSerializer(jackson2JsonRedisSerializer);
       template.afterPropertiesSet();
       return template;
+   }
+   @Bean
+   public RedissonClient redissonClient(){
+      Config config = new Config();
+      config.useSingleServer().setAddress("redis://112.74.125.228");
+      return Redisson.create(config);
    }
 }
