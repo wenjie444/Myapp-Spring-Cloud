@@ -63,6 +63,10 @@
             <artifactId>redisson</artifactId>
             <version>3.16.4</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.elasticsearch.client</groupId>-->
+<!--            <artifactId>elasticsearch-rest-high-level-client</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
     <build>
         <finalName>uplocat</finalName>

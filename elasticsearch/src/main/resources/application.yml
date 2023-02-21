@@ -1,0 +1,16 @@
+server:
+  port: 8086
+
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://112.74.125.228:3306/wallpaper?serverTimezone=Asia/Shanghai
+    password: 910302
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.elas.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

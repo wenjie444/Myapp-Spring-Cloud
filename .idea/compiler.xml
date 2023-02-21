@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="elasticsearch" />
+        <module name="uplocat" />
+        <module name="hengiocn" />
         <module name="admin" />
         <module name="changiocn" />
         <module name="rabbitasync" />
-        <module name="uplocat" />
-        <module name="hengiocn" />
         <module name="gateway" />
       </profile>
     </annotationProcessing>

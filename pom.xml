@@ -15,6 +15,7 @@
         <module>uplocat</module>
         <module>gateway</module>
         <module>rabbitasync</module>
+        <module>elasticsearch</module>
     </modules>
 
     <properties>
@@ -32,13 +33,14 @@
         <mysql>8.0.15</mysql>
         <mybatis>3.0.0</mybatis>
         <lombok>1.18.26</lombok>
+<!--        <elasticsearch.version>7.12.0</elasticsearch.version>-->
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
+                <artifactId>spring-boot-starter-parent</artifactId>
                 <version>${spring-boot}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -98,6 +100,10 @@
                 <artifactId>spring-boot-starter-amqp</artifactId>
                 <version>${spring-boot-amqp}</version>
             </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.client</groupId>-->
+<!--                <artifactId>elasticsearch-rest-high-level-client</artifactId>-->
+<!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 </project>
