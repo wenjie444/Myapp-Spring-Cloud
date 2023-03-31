@@ -45,13 +45,13 @@ spring:
     remove-abandoned-timeout: 18000
     web-stat-filter.enabled: true
 
-redis:
-  host: 112.74.125.228
-  port: 6379
-  jedis:
-    pool:
-      min-idle: 5
-      max-idle: 10
+  redis:
+    host: 112.74.125.228
+    port: 6379
+    jedis:
+      pool:
+        min-idle: 5
+        max-idle: 10
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

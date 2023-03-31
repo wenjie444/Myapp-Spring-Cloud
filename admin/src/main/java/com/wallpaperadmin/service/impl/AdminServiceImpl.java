@@ -13,8 +13,9 @@ public class AdminServiceImpl implements AdminService {
 
    public Admin login(Admin admin) {
       Admin a = this.adminMapper.selectOne(admin.getUsername(), admin.getOpenid());
+      System.out.println(a);
       if (a == null) {
-         this.adminMapper.insterAdmin(admin);
+         this.adminMapper.insterAdmin(admin.getUsername(),admin.getIocn(),admin.getOpenid(),admin.getAddtime());
       }
 
       return admin;
