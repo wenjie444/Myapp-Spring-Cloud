@@ -15,6 +15,7 @@
         <module name="rabbitasync" />
         <module name="gateway" />
         <module name="excelmode" />
+        <module name="cortoon" />
       </profile>
     </annotationProcessing>
   </component>

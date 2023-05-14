@@ -17,6 +17,7 @@
         <module>rabbitasync</module>
         <module>elasticsearch</module>
         <module>excelmode</module>
+        <module>cortoon</module>
     </modules>
 
     <properties>
