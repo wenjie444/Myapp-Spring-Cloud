@@ -16,4 +16,9 @@ public class ClassifyServiceImpl implements ClassifyService {
     public List<Classify> Get() {
         return classifyMapper.select();
     }
+
+
+
+
+
 }

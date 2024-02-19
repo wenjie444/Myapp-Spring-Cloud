@@ -67,10 +67,11 @@ public class RedisConfig {
       template.afterPropertiesSet();
       return template;
    }
-   @Bean
-   public RedissonClient redissonClient(){
-      Config config = new Config();
-      config.useSingleServer().setAddress("redis://112.74.125.228");
-      return Redisson.create(config);
-   }
+//   @Bean
+//   public RedissonClient redissonClient(){
+//      Config config = new Config();
+//      config.useSingleServer().setAddress("redis://39.98.107.158")
+//              .setPassword("910302");
+//      return Redisson.create(config);
+//   }
 }

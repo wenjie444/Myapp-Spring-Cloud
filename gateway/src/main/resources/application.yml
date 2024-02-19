@@ -6,7 +6,9 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 112.74.125.228:8848
+        server-addr: 49.235.158.242:8848
+        username: nacos
+        password: nacos
     gateway:
       httpclient:
         connect-timeout: 100000000
@@ -47,6 +49,12 @@ spring:
           uri: lb://uplocat
           predicates:
             - Path=/uplocat/**
+          filters:
+            - StripPrefix=1
+        - id: cortoon
+          uri: lb://cortoon
+          predicates:
+            - Path=/cortoon/**
           filters:
             - StripPrefix=1
   application:

@@ -4,11 +4,11 @@ server:
     context-path: /wallparper
 
 spring:
-  cloud:
-    nacos:
-      server-addr: 112.74.125.228:8848
-  application:
-    name: cortoon
+#  cloud:
+#    nacos:
+#      server-addr: 112.74.125.228:8848
+#  application:
+#    name: cortoon
 
   redis:
     host: 112.74.125.228
@@ -18,10 +18,10 @@ spring:
         min-idle: 5
         max-idle: 10
   datasource:
-    url: jdbc:mysql://112.74.125.228:3306/wallpaper?serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://39.98.107.158:3306/wallpaper?serverTimezone=Asia/Shanghai
     password: 910302
     username: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
     druid:
     minIdle: 50
     time-between-eviction-runs-millis: 60000

@@ -6,11 +6,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 112.74.125.228:8848
+        server-addr: 39.98.107.158:8848
 
   rabbitmq:
     port: 5672
-    host: 112.74.125.228
+    host: 39.98.107.158
     username: admin
     password: admin
     virtual-host: my_vhost

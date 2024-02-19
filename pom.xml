@@ -18,6 +18,7 @@
         <module>elasticsearch</module>
         <module>excelmode</module>
         <module>cortoon</module>
+        <module>backgroundadmin</module>
     </modules>
 
     <properties>
@@ -108,4 +109,5 @@
 <!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
+
 </project>
